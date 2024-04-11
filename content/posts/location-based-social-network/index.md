@@ -1,9 +1,8 @@
 ---
-title: "A Decentralised Social Platform Rooted in Place"
-date: 2024-04-08
+title: "Could We Build a Decentralised Social Platform Rooted in Place?"
+date: 2024-04-11
 description: "Exploring the idea of a decentralised social platform based on location."
 tags: ["fediverse", "ideas"]
-showTableOfContents: true
 ---
 
 Over the past year or so I’ve been playing with the idea of a decentralised social platform based on your location. By putting physical location at the centre of the experience, such a platform could be used to bring communities together and provide a source of local information when travelling.
@@ -16,7 +15,7 @@ The concepts of the [Fediverse](https://en.wikipedia.org/wiki/Fediverse) and [We
 
 Additionally, the idea of being an active member of the local community might sound increasingly enticing to those of us who are done with doomscrolling, but would still like to take part in local conversation. Whether to enact meaningful change in the community, to join a local jogging group, or even just to share a photo of the surrounding countryside.
 
-Those who don’t care about any of those things could still benefit from the byproduct of conversations taking place around a specified location. Whether at home or away on holiday, perhaps in discovering an interesting landmark, or you might have a question about a place, the platform could tell you about existing conversations in and around the location you’re in, and if there are none, you could post one.
+Those who don’t care about any of those things could still benefit from the byproduct of conversations taking place around a specified location. Whether at home or away on holiday, perhaps in discovering an interesting landmark, or in need of local information, the platform could tell you about existing conversations in and around the location you’re in, and if there are none, you could post one.
 
 ## Habitat: A Mockup
 
@@ -26,7 +25,7 @@ I envision that Habitat will consist of two primary sections: _Home_ and _Nearby
 
 ### The Home Feed
 
-The Home feed will display posts submitted directly to the user's instance of Habitat, ordered by date. These posts will also be filtered by the user's preference of categories.
+The Home feed will display posts submitted directly to the local instance of Habitat that the user is subscribed to, ordered by date. These posts will also be filtered by the user's preference of categories.
 
 ![Habitat Home feed](home-section.gif "Habitat Home feed")
 
@@ -42,6 +41,32 @@ The Nearby section also displays posts, however there will be two key difference
 ![Habitat Nearby feed](nearby-section.gif "Habitat Nearby feed")
 
 I envision the Home feed as being for locals, and the Nearby feed as being for visitors.
+
+{{<mermaid>}}
+    sequenceDiagram
+        actor User
+        opt Home feed
+            User->>User's Habitat Instance: Request
+            User's Habitat Instance->>User's Habitat Instance: Get latest posts
+            User's Habitat Instance->>User: Latest posts
+        end
+        opt Nearby feed
+            User->>User's Habitat Instance: Request
+            loop Nearest Habitat Instances
+                User's Habitat Instance->>Remote Habitat Instance: Request
+                Remote Habitat Instance->>Remote Habitat Instance: Get nearest posts
+                Remote Habitat Instance->>User's Habitat Instance: Nearest posts
+            end
+            User's Habitat Instance-->>User's Habitat Instance: Get nearest posts (If applicable)
+            User's Habitat Instance->>User: Nearest posts
+        end
+{{</mermaid>}}
+
+Limits for each request will need to be decided. Some to consider are:
+
+* The maximum distance from the user to be considered "near"
+* The maximum number of instances to call if many are near
+* The maximum number of posts sent from each instance
 
 ### Categories
 
@@ -97,11 +122,12 @@ Given that such a social platform would be fragmented by nature, it would be uns
 
 It may be important for an administrator to be able to create _Areas_ within their instance so that users can further filter by their local district. What if, after growing, the administrator would prefer to not pay for and administer the hosting of their entire county, but instead only for their local town? Perhaps it should be possible to export data for entire _Areas_ to be moved to new instances. Or, perhaps the simpler solution, it should be possible for some administrators to be permitted to administer specific _Areas_ of an instance only.
 
-## Let’s Wrap This Up
+## Where Do We Go From Here?
 
-In conclusion, to the best of my knowledge, it should be feasible to build a decentralised social platform that will allow users to submit and see content relevant to their location, even when travelling. 
+There are a great deal of unknowns right now, and I could really do with feedback. If this article could entice someone to help make it a reality, that'd be wonderful! But I don't really know if it's something people would want.
 
-Here are some questions for you:
+I think the very next thing is to see if the idea stirs conversation, so please drop me any feedback. Here are some questions you might be able to answer:
 
-* Do you foresee any technical hurdles that I've missed?
-* Would you use it?
+* Do you think that there are any technical issues that would prevent this from being feasable?
+* How should it be different from what I've described?
+* Do you think it's something that you'd like to use?
