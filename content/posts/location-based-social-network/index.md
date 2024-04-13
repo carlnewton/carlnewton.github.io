@@ -3,6 +3,7 @@ title: "Could We Build a Decentralised Social Platform Rooted in Place?"
 date: 2024-04-13
 description: "Exploring the idea of a decentralised social platform based on location."
 tags: ["fediverse", "ideas"]
+showComments: true
 ---
 
 Over the past year or so I’ve been playing with the idea of a decentralised social platform based on your location. By putting physical location at the centre of the experience, such a platform could be used to bring communities together and provide a source of local information when travelling.
