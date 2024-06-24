@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Habitat on Carl Newton</title>
+    <link>http://localhost:1313/tags/habitat/</link>
+    <description>Recent content in Habitat on Carl Newton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/habitat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I&#39;m Building Habitat</title>
+      <link>http://localhost:1313/posts/building-habitat/</link>
+      <pubDate>Mon, 24 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/building-habitat/</guid>
+      <description>A few months ago I created this blog for the very purpose of sharing an idea of a decentralised social platform based on your location.</description>
+    </item>
+  </channel>
+</rss>
