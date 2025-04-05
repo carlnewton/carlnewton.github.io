@@ -1,0 +1,752 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="false"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="rgb(255,255,255)" />
+  
+  <title>Could We Build a Decentralised Social Platform Rooted in Place? &middot; Carl Newton</title>
+    <meta name="title" content="Could We Build a Decentralised Social Platform Rooted in Place? &middot; Carl Newton" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.022d0ebc3b46a335eb1c7ef79b7f2de143d7cd5156d433638592ef1ce5f8554e.js"
+    integrity="sha256-Ai0OvDtGozXrHH73m38t4UPXzVFW1DNjhZLvHOX4VU4="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.5ea5a2723a6600ec162c3206366e9a4fbb0c82f79711e724dea2dfe92a2a864f.css"
+    integrity="sha256-XqWicjpmAOwWLDIGNm6aT7sMgveXEeck3qLf6Soqhk8="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      Exploring the idea of a decentralised social platform based on location.
+    "
+  />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/01-location-based-social-network/" />
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/posts/01-location-based-social-network/">
+  <meta property="og:site_name" content="Carl Newton">
+  <meta property="og:title" content="Could We Build a Decentralised Social Platform Rooted in Place?">
+  <meta property="og:description" content="Exploring the idea of a decentralised social platform based on location.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-04-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-04-13T00:00:00+00:00">
+    <meta property="article:tag" content="Fediverse">
+    <meta property="article:tag" content="Ideas">
+    <meta property="og:image" content="http://localhost:1313/posts/01-location-based-social-network/feature.jpg">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/posts/01-location-based-social-network/feature.jpg">
+  <meta name="twitter:title" content="Could We Build a Decentralised Social Platform Rooted in Place?">
+  <meta name="twitter:description" content="Exploring the idea of a decentralised social platform based on location.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Could We Build a Decentralised Social Platform Rooted in Place?",
+    "headline": "Could We Build a Decentralised Social Platform Rooted in Place?",
+    "description": "Exploring the idea of a decentralised social platform based on location.",
+    
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/posts\/01-location-based-social-network\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Carl Newton"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-04-13T00:00:00\u002b00:00",
+    "datePublished": "2024-04-13T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-04-13T00:00:00\u002b00:00",
+    
+    "keywords": ["fediverse","ideas"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1780"
+  }
+  </script>
+
+
+  
+  <meta name="author" content="Carl Newton" />
+  
+    
+      <link href="https://github.com/carlnewton" rel="me" />
+    
+      <link href="https://www.linkedin.com/in/carlnewton" rel="me" />
+    
+      <link href="https://mastodon.world/@carlnewton" rel="me" />
+    
+  
+  
+  
+
+  
+  
+  
+  
+  <script
+    defer
+    type="text/javascript"
+    src="/js/mermaid.bundle.119bc656ad2b39a49942e355ac2786b1448e64e54bbdaa19847c9c33e64406bacb7fb81235046ee8110163298427867b64d77a30450e0cdf1cff958223ecb9ec.js"
+    integrity="sha512-EZvGVq0rOaSZQuNVrCeGsUSOZOVLvaoZhHycM&#43;ZEBrrLf7gSNQRu6BEBYymEJ4Z7ZNd6MEUODN8c/5WCI&#43;y57A=="
+  ></script>
+
+
+
+
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 print:hidden sm:py-10 dark:text-neutral">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Carl Newton</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/posts/"
+                  title="Posts"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Could We Build a Decentralised Social Platform Rooted in Place?
+      </h1>
+      
+        <div class="mb-12 mt-8 text-base text-neutral-500 print:hidden dark:text-neutral-400">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2024-04-13 00:00:00 &#43;0000 UTC">13 April 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+        <div class="prose">
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mb-6 -mt-4 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/posts/01-location-based-social-network/feature_hu_4b815dfe066e7a6f.webp 330w,/posts/01-location-based-social-network/feature_hu_902697a31f17a0d8.webp 660w
+            
+              ,/posts/01-location-based-social-network/feature_hu_7bf49941438671f.webp 1024w
+            
+            
+              ,/posts/01-location-based-social-network/feature_hu_d3e3cfb2eb6ae790.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="5184"
+        height="3456"
+        class="mb-6 -mt-4 rounded-md"
+        
+        
+        
+          src="/posts/01-location-based-social-network/feature_hu_d32b14e3e8133569.jpg"
+          srcset="/posts/01-location-based-social-network/feature_hu_64b08c18c14a7bc5.jpg 330w,/posts/01-location-based-social-network/feature_hu_d32b14e3e8133569.jpg 660w
+          
+            ,/posts/01-location-based-social-network/feature_hu_2e2ff8999bee722a.jpg 1024w
+          
+          
+            ,/posts/01-location-based-social-network/feature_hu_2c58b6b8a1d67905.jpg 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+          
+        </div>
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>Over the past year or so I’ve been playing with the idea of a decentralised social platform based on your location. By putting physical location at the centre of the experience, such a platform could be used to bring communities together and provide a source of local information when travelling.</p>
+<h2 id="why-should-it-exist" class="relative group">Why Should It Exist? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#why-should-it-exist" aria-label="Anchor">#</a></span></h2><p>The concepts of the <a href="https://en.wikipedia.org/wiki/Fediverse" target="_blank" rel="noreferrer">Fediverse</a> and <a href="https://en.wikipedia.org/wiki/Web3" target="_blank" rel="noreferrer">Web3</a> play an important role in the future of communication on the internet. Platform decay (more widely known as enshittification), walled gardens, rage farming, and users becoming the product have all become the norm. These large platforms need to make a profit, and we’re slowly starting to discover that their methods of doing so are not good for us. In building open-source and distributed social platforms, we also distribute the hosting costs and administration responsibilities. This ultimately gives people the freedom to choose how they want to communicate online.</p>
+<p>Additionally, the idea of being an active member of the local community might sound increasingly enticing to those of us who are done with doomscrolling, but would still like to take part in local conversation, whether to enact meaningful change in the community, to join a local jogging group, or even just to share a photo of the surrounding countryside.</p>
+<p>Those who don’t care about any of those things could still benefit from the byproduct of conversations taking place around a specified location. Whether at home or away on holiday, perhaps in discovering an interesting landmark, or in need of local information, the platform could tell you about existing conversations in and around the location you’re in, and if there are none, you could post one.</p>
+<h2 id="habitat-a-mockup" class="relative group">Habitat: A Mockup <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#habitat-a-mockup" aria-label="Anchor">#</a></span></h2><p>I&rsquo;ve decided to build a proof of concept of a mobile interface that would demonstrate how such a platform could be used. I decided that <em>Habitat</em> is as good a name as any.</p>
+<p>I envision that Habitat will consist of two primary sections: <em>Home</em> and <em>Nearby</em>. Both of these sections will display posts submitted by users.</p>
+<h3 id="the-home-feed" class="relative group">The Home Feed <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-home-feed" aria-label="Anchor">#</a></span></h3><p>The Home feed will display posts submitted directly to the instance of Habitat that the user is subscribed to, ordered by date. These posts could also be filtered by the user&rsquo;s preference of categories.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            
+              srcset="/posts/01-location-based-social-network/home-section_hu_4249e52965f1bb0.webp"
+            
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="325"
+        height="635"
+        class="mx-auto my-0 rounded-md"
+        alt="Habitat Home feed"
+        loading="lazy" decoding="async"
+        
+          src="/posts/01-location-based-social-network/home-section.gif"
+        
+      />
+    </picture>
+  
+
+<figcaption class="text-center">Habitat Home feed</figcaption>
+</figure>
+</p>
+<p>If desired, it could in theory be possible to create functionality for the user to essentially subscribe to multiple instances of Habitat, but the intention of this section is to show the user what is happening in their local area.</p>
+<h3 id="the-nearby-feed" class="relative group">The Nearby Feed <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-nearby-feed" aria-label="Anchor">#</a></span></h3><p>The Nearby feed also displays posts, however there will be two key differences in their criteria:</p>
+<ul>
+<li>The posts will be ordered by distance from the user&rsquo;s current location, instead of by date.</li>
+<li>The posts will be sourced from any physically close Habitat instances, not necessarily the instance that the user is a subscriber of.</li>
+</ul>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            
+              srcset="/posts/01-location-based-social-network/nearby-section_hu_1df86765b9f714a6.webp"
+            
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="325"
+        height="635"
+        class="mx-auto my-0 rounded-md"
+        alt="Habitat Nearby feed"
+        loading="lazy" decoding="async"
+        
+          src="/posts/01-location-based-social-network/nearby-section.gif"
+        
+      />
+    </picture>
+  
+
+<figcaption class="text-center">Habitat Nearby feed</figcaption>
+</figure>
+</p>
+<p>I envision the Home feed as being for locals, and the Nearby feed as being for visitors.</p>
+<div class="mermaid" align="center">
+  
+    sequenceDiagram
+        actor User
+        opt Home feed
+            User->>User's Habitat Instance: Request
+            User's Habitat Instance->>User's Habitat Instance: Get latest posts
+            User's Habitat Instance->>User: Latest posts
+        end
+        opt Nearby feed
+            User->>User's Habitat Instance: Request
+            loop Nearest Habitat Instances
+                User's Habitat Instance->>Remote Habitat Instance: Request
+                Remote Habitat Instance->>Remote Habitat Instance: Get nearest posts
+                Remote Habitat Instance->>User's Habitat Instance: Nearest posts
+            end
+            User's Habitat Instance-->>User's Habitat Instance: Get nearest posts (If applicable)
+            User's Habitat Instance->>User: Nearest posts
+        end
+
+</div>
+
+<p>Limits for each request will need to be decided. Some to consider are:</p>
+<ul>
+<li>The maximum distance from the user to be considered &ldquo;near&rdquo;</li>
+<li>The maximum number of instances to call if many are near</li>
+<li>The maximum number of posts sent from each instance</li>
+</ul>
+<h3 id="categories" class="relative group">Categories <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#categories" aria-label="Anchor">#</a></span></h3><p>Given that location is such a broad subject, it&rsquo;s easy to imagine that people would find the platform useful for a variety of reasons. Those interested in local landmarks may not be the same people as those interested in a book reading club.</p>
+<p>For this reason, I think it would be important for Habitat instance administrators to have the ability to create their own categories, and for users to be able to filter their feeds to display posts from specified categories.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            
+              srcset="/posts/01-location-based-social-network/post_hu_44c65b7c813f6d1d.webp"
+            
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="325"
+        height="635"
+        class="mx-auto my-0 rounded-md"
+        alt="Example Habitat post to a Landmarks category"
+        loading="lazy" decoding="async"
+        
+          src="/posts/01-location-based-social-network/post.gif"
+        
+      />
+    </picture>
+  
+
+<figcaption class="text-center">Example Habitat post to a Landmarks category</figcaption>
+</figure>
+</p>
+<p>Additionally, administrators may find that some categories are not suitable for the Nearby feed. For instance, they might decide that local gossip may be suitable for the Home feed, but visitors will likely be more interested in landmarks and local Q&amp;A. To keep the Nearby feed clear of everyday local conversation, it would be good for administrators to have the ability to create categories that will only ever appear in the Home feed, or to put it another way, posts that will only ever display for those who are directly subscribed to their Habitat instance.</p>
+<p>This also applies to posts specifying an exact coordinate. Some categories may not require one, as they may pertain to general local conversation.</p>
+<h2 id="connecting-instances" class="relative group">Connecting Instances <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#connecting-instances" aria-label="Anchor">#</a></span></h2><p>Social platforms on the Fediverse have to deal with the issue of connecting with other instances. It seems that different platforms have varying degrees of success with this challenge, by federating with select instances, but I think that a platform built around location would have a unique property that would give it a superpower when it comes to displaying posts from the relevant instances when a user opens the Nearby tab. To connect to the relevant Habitat instances no matter where in the world the user is, we need to harness this superpower.</p>
+<h3 id="the-power-of-coordinates" class="relative group">The Power of Coordinates <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-power-of-coordinates" aria-label="Anchor">#</a></span></h3><p>Lat/long coordinates are trivial to query by distance from a MySQL database. Utilising this, we could create a list of Habitat instances that are relevant to a user&rsquo;s current location, and then query only those instances.</p>
+<p>This query could be performed locally, so long as each Habitat instance is aware of the network as a whole. This problem requires that a shared list of all instances is communicated and routinely updated amongst connected instances.</p>
+<h3 id="gossip-protocol" class="relative group">Gossip Protocol <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#gossip-protocol" aria-label="Anchor">#</a></span></h3><p><a href="https://en.wikipedia.org/wiki/Gossip_protocol" target="_blank" rel="noreferrer">Gossip protocol</a> to the rescue! This is a process by which nodes of a network routinely query each other to update shared information.</p>
+<p>In our scenario, instances of Habitat would ideally have a special relationship with instances that represent places physically close. This special relationship would allow the instances to routinely compare their lists of all instances. For the sake of brevity, let&rsquo;s refer to this relationship as <em>neighbouring</em>.</p>
+<p>For example, Habitat:London might choose to be neighbours with Habitat:Birmingham, Habitat:Peterborough and Habitat:Norwich. Habitat:Birmingham might choose to be neighbours with Habitat:Notthingham and Habitat:Cardiff also. You&rsquo;ll have to take this example with a pinch of salt, given that we haven&rsquo;t discussed how large an instance should ideally be, but you hopefully get the idea.</p>
+<p>While each instance becomes aware of all other instances, they only query that information from their neighbours.</p>
+<p>I built a simulation to demonstrate this. Each circle represents a Habitat instance, and the lines represent neighbouring relationships between instances.</p>
+<video controls preload="auto" width="100%"  playsinline class="html-video mx-auto">
+    <source src="/posts/01-location-based-social-network/gossip.mp4" type="video/mp4">
+  <span></span>
+</video>
+<p>The simulation is sped up, perhaps a twice-a-day sync would be more than enough to keep the network reasonably up-to-date at all times.</p>
+<p>The flashing lines show a query between two instances. As a new instance is added to the network, knowledge of its existence propagates throughout the entire network. In this video, when an instance turns blue, it has a complete list of the entire network.</p>
+<p>It may also benefit the network as a whole for some instances to be neighbouring with locationally distant instances to reduce propagation time, but doing so may come with a downside. Users are probably more likely to be travelling to neighbouring towns and cities than to somewhere distant, and when using the Nearby functionality, they would better benefit from a sooner update from local instances.</p>
+<p>These are only problems after thousands of connected instances. But when sharing a list of URLs and coordinates of an entire decentralised network, it&rsquo;s certainly something that should be considered.</p>
+<h2 id="growing-pains" class="relative group">Growing Pains <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#growing-pains" aria-label="Anchor">#</a></span></h2><p>As such a network grows, it would become more resource-intensive to routinely share a full list of all instances. Something as simple as static file-based caching for the list will probably go a long way to help with this. With only a few thousand instances, the list might not be much different in filesize than this very article. One download twice a day sounds easily doable. But I&rsquo;m thinking about the ideal scenario. Ideally, my local town would have its own instance. Small instances that are cheap to host with truly local posts would be the dream, but that dream requires something more carefully considered than routinely comparing a list of potentially millions of URLs and coordinates.</p>
+<h3 id="bloom-filters" class="relative group">Bloom Filters <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#bloom-filters" aria-label="Anchor">#</a></span></h3><p>A <a href="https://en.wikipedia.org/wiki/Bloom_filter" target="_blank" rel="noreferrer">Bloom filter</a> is a method we can use to have an instance request a string which represents a neighbour&rsquo;s list. This string would be substantially smaller than the list itself. The instance could use this string to generate a list of instances which its neighbour is missing and send only those items back. The neighbouring instance could then do the same so that both instances will end up with identical lists.</p>
+<h3 id="how-big-is-too-big" class="relative group">How Big Is Too Big? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#how-big-is-too-big" aria-label="Anchor">#</a></span></h3><p>Given that such a social platform would be fragmented by design, it would be unsurprising to find that gaining a flourishing community in a single instance would be a challenge. For this reason, it might be tempting to create larger instances. This is not how I personally envision such a platform, but it&rsquo;s important to consider the best path to that ideal.</p>
+<p>It may be important for an administrator to be able to create <em>Areas</em> within their instance so that users can further filter by their local district. What if, after growing, the administrator would prefer to not pay for and administer the hosting of their entire county, but instead only for their local town? Perhaps it should be possible to export data for entire <em>Areas</em> to be moved to new instances. Or, perhaps the simpler solution, it should be possible for some administrators to be permitted to administer specific <em>Areas</em> of an instance only.</p>
+<h2 id="where-do-we-go-from-here" class="relative group">Where Do We Go From Here? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#where-do-we-go-from-here" aria-label="Anchor">#</a></span></h2><p>There are a great deal of unknowns right now, and I could really do with feedback. If this article could entice someone to help make it a reality, that&rsquo;d be wonderful! But I don&rsquo;t know if it&rsquo;s something people would want, or if it&rsquo;s something that only I want.</p>
+<p>I think the very next thing is to see if the idea stirs conversation, so please drop me any feedback. Here are some questions you might be able to answer:</p>
+<ul>
+<li>Do you think any technical issues would prevent this from being feasible?</li>
+<li>How should it be different from what I&rsquo;ve described?</li>
+<li>Do you think it&rsquo;s something that you&rsquo;d like to use?</li>
+</ul>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+  <div class="flex">
+    
+    
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Carl Newton
+        </div>
+      
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/carlnewton"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://www.linkedin.com/in/carlnewton"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://mastodon.world/@carlnewton"
+          target="_blank"
+          aria-label="Mastodon"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg>
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/posts/02-building-habitat/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >I'm Building Habitat</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-06-24 00:00:00 &#43;0000 UTC">24 June 2024</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+        
+          <div class="pt-3">
+            <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+            <div class="pt-3">
+              <script src="https://giscus.app/client.js"
+        data-repo="carlnewton/carlnewton.github.io"
+        data-repo-id="R_kgDOLrH9MQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOLrH9Mc4Ceqjb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+          </div>
+        
+      
+    </footer>
+  </article>
+
+        
+          <div class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12">
+            <a
+              href="#the-top"
+              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2025
+            Carl Newton
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

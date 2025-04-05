@@ -4,23 +4,30 @@
     <title>Carl Newton</title>
     <link>http://localhost:1313/</link>
     <description>Recent content on Carl Newton</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deployment Processes - Finding Another Way to Not Build a Light Bulb</title>
+      <link>http://localhost:1313/posts/deployment-techniques/</link>
+      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/deployment-techniques/</guid>
+      <description></description>
+    </item>
     <item>
       <title>I&#39;m Building Habitat</title>
       <link>http://localhost:1313/posts/building-habitat/</link>
       <pubDate>Mon, 24 Jun 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/building-habitat/</guid>
-      <description>A few months ago I created this blog for the very purpose of sharing an idea of a decentralised social platform based on your location.</description>
+      <description></description>
     </item>
     <item>
       <title>Could We Build a Decentralised Social Platform Rooted in Place?</title>
       <link>http://localhost:1313/posts/location-based-social-network/</link>
       <pubDate>Sat, 13 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/location-based-social-network/</guid>
-      <description>Over the past year or so I’ve been playing with the idea of a decentralised social platform based on your location.</description>
+      <description></description>
     </item>
   </channel>
 </rss>
